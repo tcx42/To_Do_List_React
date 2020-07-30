@@ -39,6 +39,10 @@
   font-family: cursive;
   font-size: 1em;
 }
+.completedItem{
+  color: grey;
+  text-decoration: line-through;
+}
 .EditItemButton {
   background-image: url("./img/edit.png");
 }

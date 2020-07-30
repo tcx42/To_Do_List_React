@@ -43,7 +43,9 @@ class ToDoItem extends React.Component {
     };
 
     const toDoItem =
-    <label>
+    <label
+      className={this.props.item.completed ? 'completedItem' : null}
+      >
       <input className="ToDoItemCheckbox"
         type="checkbox"
         checked={this.props.item.completed}
