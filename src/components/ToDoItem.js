@@ -1,4 +1,5 @@
 import React from 'react'
+import EditItemInput from './EditItemInput'
 
 class ToDoItem extends React.Component {
   constructor() {
@@ -6,7 +7,8 @@ class ToDoItem extends React.Component {
     this.state = {
       editMode: false
     }
-    this.handleEdit = this.handleEdit.bind(this);
+    this.saveEdit = this.saveEdit.bind(this);
+    this.startEdit = this.startEdit.bind(this);
   }
 
   startEdit(text) {
@@ -16,19 +18,7 @@ class ToDoItem extends React.Component {
     })
   }
 
-  handleEdit(event) {
-    this.setState({
-      editMode: true,
-      text: event.target.value
-    })
-  }
-
-  saveEdit() {
-    const itemData = {
-      id: this.props.item.id,
-      text: this.state.text,
-      completed: this.props.item.completed
-    };
+  saveEdit(itemData) {
     this.setState({
       editMode: false
     })
@@ -54,20 +44,10 @@ class ToDoItem extends React.Component {
       {this.props.item.text}
     </label>
 
-    const editItem =
-    <div className="EditItemDiv">
-      <input type="checkbox" checked={false} onChange={()=>{}}/>
-      <input className="EditItemInput"
-        type="text"
-        value={this.state.text}
-        onChange={this.handleEdit}
-        onKeyUp={event => {
-          if (event.keyCode === 13) {
-            this.saveEdit();
-          }
-        }}
-        />
-    </div>
+    const editItem = <EditItemInput
+        item={this.props.item}
+        saveEdit={this.saveEdit}
+      />
 
     const deleteButton =
     <button className="DeleteItemButton"
@@ -75,12 +55,7 @@ class ToDoItem extends React.Component {
       X
     </button>
 
-    const editButton = this.state.editMode ?
-    <button className="SaveItemButton"
-      onClick={() => {this.saveEdit()}}>
-      s
-    </button>
-    :
+    const editButton = !this.state.editMode &&
     <button className="EditItemButton"
       onClick={() => {this.startEdit(this.props.item.text)}}>
       /

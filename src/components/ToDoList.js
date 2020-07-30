@@ -75,9 +75,9 @@ class ToDoList extends React.Component{
   }
 
   render() {
-    const listElements = this.state.listData.map(item => {
+    const listElements = this.state.listData.map((item, i) => {
       return (
-        <div>
+        <div key={'div' + i}>
         <ToDoItem
           key={item.id}
           item={item}
@@ -89,10 +89,10 @@ class ToDoList extends React.Component{
       )
     })
 
-    const blankLines = Array.apply(null, {length: 19 - this.state.size}).map((e, i) => {
-      return <div>
+    const blankLines = Array.apply(null, {length: 11 - this.state.size}).map((e, i) => {
+      return <div key={'div' + i}>
       <NewItem
-        key={i}
+        key={'bl' + i}
         itemId={this.state.size}
         newItem={this.newItem}
         />
@@ -106,6 +106,7 @@ class ToDoList extends React.Component{
         {listElements}
         {blankLines}
         <NewItem
+          key={'last'}
           itemId={this.state.size}
           newItem={this.newItem}
           />

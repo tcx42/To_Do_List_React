@@ -10,7 +10,6 @@
 .ToDoItem, .NewItem, .EditItemDiv {
   display: flex;
   flex-direction: row;
-  vertical-align: middle;
   width: 100%;
 }
 .ToDoItem label {
@@ -19,9 +18,9 @@
 .EditItemInput, .NewItemInput {
   background-color: floralwhite;
   border: none;
-  width: 100%;
+  width: calc(100% - 55px);
 }
-.ToDoItem Button, .NewItem button {
+.ToDoItem Button, .NewItem button, .EditItemDiv button {
   margin-right: 10px;
   background-color: transparent;
   background-repeat: no-repeat;
