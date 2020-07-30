@@ -1,38 +1,60 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ToDoList {
+  max-width: 100ch;
+  margin: auto;
+  background-color: floralwhite;
+  text-align: left;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ToDoItem, .NewItem, .EditItemDiv {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  vertical-align: middle;
+  width: 100%;
 }
-
-.App-link {
-  color: #61dafb;
+.ToDoItem label {
+  width: 100%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.EditItemInput, .NewItemInput {
+  background-color: floralwhite;
+  border: none;
+  width: 100%;
+}
+.ToDoItem Button, .NewItem button {
+  margin-right: 10px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 20px;
+  width: 20px;
+  border: none;
+  color: transparent;
+}
+.EditItemButton {
+  background-image: url("/edit.png");
+}
+.SaveItemButton {
+  background-image: url("/save.png");
+}
+.DeleteItemButton {
+  background-image: url("/delete.png");
+}
+.NewItemButton {
+  background-image: url("/add.png");
+}
+button span {
+  display: none;
+}
+.ToDoList hr {
+  background: lightgrey;
+  border: none;
+  height: 1px;
+}
+header{
+  text-align: center;
+  padding-top: 0.25ch;
+}
+footer{
+  height: 3ch;
 }
