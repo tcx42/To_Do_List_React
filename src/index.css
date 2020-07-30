@@ -7,15 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ToDoList {
-  font-family: cursive;
-  font-size: 1.2em;
-}
-.ToDoList input{
-  font-family: cursive;
-  font-size: 1.2em;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -31,17 +31,25 @@
   border: none;
   color: transparent;
 }
+.ToDoList {
+  font-family: cursive;
+  font-size: 1.2em;
+}
+.ToDoList input, .NewItemInput input{
+  font-family: cursive;
+  font-size: 1em;
+}
 .EditItemButton {
-  background-image: url("/edit.png");
+  background-image: url("./img/edit.png");
 }
 .SaveItemButton {
-  background-image: url("/save.png");
+  background-image: url("./img/save.png");
 }
 .DeleteItemButton {
-  background-image: url("/delete.png");
+  background-image: url("./img/deleteb.png");
 }
 .NewItemButton {
-  background-image: url("/add.png");
+  background-image: url("./img/add.png");
 }
 button span {
   display: none;
