@@ -4,12 +4,7 @@ class NewItem extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      itemData: [{
-        id: props.itemId,
-        text: "",
-        completed: false
-      }],
-      inputValue: "",
+      text: "",
       buttonVisible: false
     }
     this.addNew = this.addNew.bind(this);
@@ -18,12 +13,7 @@ class NewItem extends React.Component{
 
   handleChange(event){
     this.setState({
-      itemData: {
-        id: this.props.itemId,
-        text: event.target.value,
-        completed: false
-      },
-      inputValue: event.target.value,
+      text: event.target.value,
       buttonVisible: (event.target.value !== "")
     })
   }
@@ -31,16 +21,11 @@ class NewItem extends React.Component{
   addNew(){
     this.setState(prevState => {
       return {
-        itemData: {
-          id: prevState.itemData.id + 1,
-          text: "",
-          completed: prevState.itemData.completed
-        },
-        inputValue: "",
+        text: "",
         buttonVisible: false
       }
     })
-    this.props.newItem(this.state.itemData);
+    this.props.newItem(this.state.text);
   }
 
   render() {
@@ -49,13 +34,18 @@ class NewItem extends React.Component{
         <input type="checkbox" checked={false} onChange={()=>{}}/>
         <input className="NewItemInput"
           type="text"
-          value={this.state.inputValue}
+          value={this.state.text}
           onChange={this.handleChange}
           onKeyUp={event => {
             if (event.keyCode === 13 && event.target.value !== "") {
               this.addNew();
             }
           }}
+          onBlur={(() => {
+            if(this.state.text !== ""){
+              this.addNew();
+            }
+          })}
         />
         {this.state.buttonVisible && <button
           className="NewItemButton"

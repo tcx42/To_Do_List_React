@@ -50,7 +50,12 @@ class ToDoList extends React.Component{
     localStorage.setItem('list', JSON.stringify(newList));
   }
 
-  newItem(itemData) {
+  newItem(newItemText) {
+    const itemData = {
+      id: this.state.size,
+      text: newItemText,
+      completed: false
+    }
     let newList = this.state.listData;
     newList.push(itemData);
     this.setState(prevState => {
@@ -68,10 +73,14 @@ class ToDoList extends React.Component{
     this.setState(prevState => {
       return{
         listData: newList,
-        size: prevState.size
+        size: prevState.size - 1
       }
     })
-    localStorage.setItem('list', JSON.stringify(newList));
+    this.handleChange({
+      id: this.state.size + 10,
+      text: "",
+      completed: false
+    });
   }
 
   render() {
@@ -93,7 +102,6 @@ class ToDoList extends React.Component{
       return <div key={'div' + i}>
       <NewItem
         key={'bl' + i}
-        itemId={this.state.size}
         newItem={this.newItem}
         />
       <hr/>
@@ -107,7 +115,6 @@ class ToDoList extends React.Component{
         {blankLines}
         <NewItem
           key={'last'}
-          itemId={this.state.size}
           newItem={this.newItem}
           />
         <Footer />
