@@ -1,6 +1,6 @@
 import React from 'react'
 import EditItemInput from './EditItemInput'
-//import Menu from './Menu'
+import Menu from './Menu'
 
 class Header extends React.Component {
   constructor(){
@@ -41,11 +41,10 @@ class Header extends React.Component {
   }
 
   render(){
-    const temporaryStyle = {padding: '2ch'}
 
     return(
-      <header style={temporaryStyle}>
-        {/*<Menu />*/}
+      <header>
+        <Menu />
         {this.state.editMode ?
           <div style={{
               padding: '4ch 0ch',
